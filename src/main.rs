@@ -61,7 +61,7 @@ enum Cli {
 fn init_project(database_url: &str) -> Result<(), OrmError> {
     // Create a basic schema.rustic file
     let schema_content = format!(
-        "datasource \"{}\" {{\n  url = \"{}\"\n}}\n\nmodel User {{\n  id    Int     @id @default(autoincrement())\n  name  String\n  email String  @unique\n  posts Post[]\n}}\n\nmodel Post {{\n  id        Int     @id @default(autoincrement())\n  title     String\n  content   String\n  author    User    @relation(fields: [authorId], references: [id])\n  authorId  Int\n}}",
+        "datasource \"{}\" {{\n  url = \"{}\"\n}}\n\nmodel Users {{\n  id    Int     @id @default(autoincrement())\n  name  String\n  email String  @unique\n  posts Post[]\n}}\n\nmodel Post {{\n  id        Int     @id @default(autoincrement())\n  title     String\n  content   String\n  author    User    @relation(fields: [authorId], references: [id])\n  authorId  Int\n}}",
         get_datasource_type(database_url), // Extract the type
         database_url
     );

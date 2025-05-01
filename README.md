@@ -23,3 +23,28 @@ cargo run status
 cargo run reset
 ```
 
+
+
+## Example Usage
+
+clone this project 
+```
+git clone https://github.com/TarunVishwakarma1/rust-orm.git
+```
+
+build this project
+```
+cargo build
+```
+generate a schema.rustic file and migerations folder in root directory by running
+```
+cargo run init <postgres_database_url>
+```
+
+migrate the tables (do not use table name which already exists in postgres)
+```
+cargo run migrate <name_of_migration>
+```
+
+And thats it, your tables should be created in the database now.
+
