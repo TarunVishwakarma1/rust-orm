@@ -1,0 +1,11 @@
+datasource "postgresql" {
+  url = "postgresql://postgres:mypass@localhost:5432/postgres"
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
